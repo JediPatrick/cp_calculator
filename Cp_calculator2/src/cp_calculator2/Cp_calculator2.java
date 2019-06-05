@@ -27,7 +27,7 @@ public class Cp_calculator2 {
 //        String name = in.next();
 //  
 
-        String name = "raticate";
+        String name = "lapras";
         String namelowcase = name.toLowerCase();
         double[] array = findpokemon.finding(namelowcase);
         attack = array[0];

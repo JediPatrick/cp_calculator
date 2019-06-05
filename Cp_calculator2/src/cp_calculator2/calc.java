@@ -105,7 +105,7 @@ public class calc {
             int totalattack = (int)(attack*CPMlevel);
             int totaldefense = (int)(defense*CPMlevel);
             int totalstamina = (int)(stamina*CPMlevel);
-            double totalstats = (attack*CPMlevel*defense*CPMlevel*Math.floor(stamina*CPMlevel)/1000);
+            double totalstats = (attack*CPMlevel*defense*CPMlevel*Math.floor(stamina*CPMlevel));
 
             CPMlevel = Math.pow(CPMlevel, 2);
             
