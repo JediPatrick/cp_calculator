@@ -95,13 +95,14 @@ public class findiv {
                         double CPMlevel = CPM[i][1];
                         loop++;
                         //double totalstats = ((attack+j)*CPMlevel*(defense+k)*CPMlevel*Math.floor((stamina+l)*CPMlevel)/1000);
-                        double totalstats = (((attack+j)*CPMlevel)*((defense+k)*CPMlevel)*Math.floor(((stamina+l)*CPMlevel)));
+                        //double totalstats = ((int)((attack)*CPMlevel)*(int)((defense)*CPMlevel)*Math.floor(((stamina)*CPMlevel)));
 
-                        
+                        double totalstats = (((attack+j)*CPMlevel)*((defense+k)*CPMlevel)*Math.floor((stamina+l)*CPMlevel));
+
                         double totalattack = ((attack+j)*CPMlevel);
                         double totaldefense = ((defense+k)*CPMlevel);
                         double totalstamina = ((stamina+l)*CPMlevel);
-
+                        //double totalstats = attack * defense * (int)stamina;
                         CPMlevel = Math.pow(CPMlevel, 2);
                         double CP = ((attack+j)*defenseCPM*staminaCPM*CPMlevel)/10;
                         CP = Math.floor(CP);

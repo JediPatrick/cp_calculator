@@ -102,12 +102,14 @@ public class calc {
         stamina = stamina+IVstamina;
         for (int i = (int)level; i < CPM.length; i++){
             CPMlevel = CPM[i][1];
+
             double totalattack = (attack*CPMlevel);
             double totaldefense = (defense*CPMlevel);
             double totalstamina = (stamina*CPMlevel);
             double totalstats = (((attack)*CPMlevel)*((defense)*CPMlevel)*Math.floor(((stamina)*CPMlevel)));
 
             //double totalstats = (attack*CPMlevel*defense*CPMlevel*Math.floor(stamina*CPMlevel)/1000);
+
 
             CPMlevel = Math.pow(CPMlevel, 2);
             
