@@ -36,8 +36,8 @@ public class Cp_calculator2 {
         double[][] array2d = findiv.calc_iv_comb(attack, defense, stamina);
         //        calc.calccp(attack, defense, stamina);
 
+        calc.calccponeline(attack, defense, stamina, 4, 13, 15, array2d);
         calc.calccponeline(attack, defense, stamina, 9, 13, 9, array2d);
-        calc.calccponeline(attack, defense, stamina, 4, 9, 6, array2d);
 
 
 

@@ -95,7 +95,7 @@ public class findiv {
                         double CPMlevel = CPM[i][1];
                         loop++;
                         //double totalstats = ((attack+j)*CPMlevel*(defense+k)*CPMlevel*Math.floor((stamina+l)*CPMlevel)/1000);
-                        double totalstats = ((int)((attack+j)*CPMlevel)*(int)((defense+k)*CPMlevel)*Math.floor(((stamina+l)*CPMlevel)));
+                        double totalstats = (((attack+j)*CPMlevel)*((defense+k)*CPMlevel)*Math.floor(((stamina+l)*CPMlevel)));
 
                         
                         double totalattack = ((attack+j)*CPMlevel);
@@ -154,7 +154,7 @@ public class findiv {
             if (array2d.length <= printcutoff){
                 printcutoff = array2d.length-1;
             }
-            print_csv(array2d,printcutoff);
+            print_csv(array2d,3000);
             print(array2d,printcutoff);
             
         }
@@ -185,9 +185,9 @@ public class findiv {
     }
     
     private static void print(double [][]array2d,int printcutoff) {
-        for (int i = printcutoff; i >= 0;i--) {
+        for (int i = printcutoff-1; i >= 0;i--) {
                 double IVrating = round((((double)array2d[i][6]+(double)array2d[i][7]+(double)array2d[i][8])/45*100),2);
-                System.out.println("At lvl " + array2d[i][1] + " CP is: " + (int)array2d[i][2] + " and the totalstats is " + (int)array2d[i][0] + " att " + round(array2d[i][3],1) +  " def " + round(array2d[i][4],1) + " HP " + (int)array2d[i][5] + " with the IV " + (int)array2d[i][6] + ":" + (int)array2d[i][7] + ":" + (int)array2d[i][8]+" and IV is "+IVrating+"%");
+                System.out.println("#"+(i+1)+" At lvl " + array2d[i][1] + " CP is: " + (int)array2d[i][2] + " and the totalstats is " + (int)array2d[i][0] + " att " + round(array2d[i][3],1) +  " def " + round(array2d[i][4],1) + " HP " + (int)array2d[i][5] + " with the IV " + (int)array2d[i][6] + ":" + (int)array2d[i][7] + ":" + (int)array2d[i][8]+" and IV is "+IVrating+"%");
             }
     }
     
