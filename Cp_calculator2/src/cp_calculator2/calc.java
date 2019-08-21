@@ -130,7 +130,7 @@ public class calc {
                 }
         }
         double procent = findpokemon.round((maxtotalstats/array[0]*100), 2);
-        System.out.println(array[0] +" "+maxtotalstats+"  "+" number "+number);
+        //System.out.println(array[0] +" "+maxtotalstats+"  "+" number "+number);
 
         System.out.println(pokemonstats+" "+procent+"%"+" number "+number);
     }

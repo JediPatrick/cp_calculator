@@ -27,7 +27,7 @@ public class Cp_calculator2 {
 //        String name = in.next();
 //  
 
-        String name = "lapras";
+        String name = "medicham";
         String namelowcase = name.toLowerCase();
         double[] array = findpokemon.finding(namelowcase);
         attack = array[0];
@@ -37,8 +37,15 @@ public class Cp_calculator2 {
         //        calc.calccp(attack, defense, stamina);
 
         calc.calccponeline(attack, defense, stamina, 9, 13, 9, array2d);
-        calc.calccponeline(attack, defense, stamina, 4, 9, 6, array2d);
-
+        calc.calccponeline(attack, defense, stamina, 1, 13, 10, array2d);
+        calc.calccponeline(attack, defense, stamina, 1, 12, 11, array2d);
+        calc.calccponeline(attack, defense, stamina, 2, 10, 12, array2d);
+        calc.calccponeline(attack, defense, stamina, 14, 10, 11, array2d);
+        calc.calccponeline(attack, defense, stamina, 3, 10, 15, array2d);
+        calc.calccponeline(attack, defense, stamina, 8, 6, 13, array2d);
+        calc.calccponeline(attack, defense, stamina, 5, 13, 14, array2d);
+        calc.calccponeline(attack, defense, stamina, 2, 7, 7, array2d);
+        calc.calccponeline(attack, defense, stamina, 2, 7, 13, array2d);
 
 
     }

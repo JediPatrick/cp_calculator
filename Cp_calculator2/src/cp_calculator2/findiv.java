@@ -86,13 +86,25 @@ public class findiv {
         if (highIVfilter == true){
             IVfilterfloor = 10;
         }
+        
+
         for (int j = IVfilterfloor; j <= 15; j++){
             for (int k = IVfilterfloor; k <= 15; k++){
                 for (int l = IVfilterfloor; l <= 15; l++){
                     double defenseCPM = Math.pow(defense+k, 0.5);
                     double staminaCPM = Math.pow(stamina+l, 0.5);
+                    double temp_totalstats = 0;
+                    double temp_totalattack = 0;
+                    double temp_totaldefense = 0;
+                    double temp_totalstamina = 0;
+                    double temp_cpm = 0;
+                    double temp_cp = 0;
+                    double temp_j = 0;
+                    double temp_k = 0;
+                    double temp_l = 0;
                     for (int i = levelstartindex; i < CPM.length; i++){
                         double CPMlevel = CPM[i][1];
+                        
                         loop++;
                         //double totalstats = ((attack+j)*CPMlevel*(defense+k)*CPMlevel*Math.floor((stamina+l)*CPMlevel)/1000);
                         //double totalstats = ((int)((attack)*CPMlevel)*(int)((defense)*CPMlevel)*Math.floor(((stamina)*CPMlevel)));
@@ -106,11 +118,20 @@ public class findiv {
                         CPMlevel = Math.pow(CPMlevel, 2);
                         double CP = ((attack+j)*defenseCPM*staminaCPM*CPMlevel)/10;
                         CP = Math.floor(CP);
+
                         if (CP > CPmax){
+                            combs.add(temp_totalstats);
+                            combs.add(temp_cpm);
+                            combs.add(temp_cp);
+                            combs.add(temp_totalattack);
+                            combs.add(temp_totaldefense);
+                            combs.add(temp_totalstamina);
+                            combs.add(temp_j);
+                            combs.add(temp_k);
+                            combs.add(temp_l);
                             break;
                         }
-                        
-                        if (CP >= Math.floor(CPfloor) && CP <= CPmax) {
+                        if (i == CPM.length-1){
                             combs.add(totalstats);
                             combs.add(CPM[i][0]);
                             combs.add(CP);
@@ -120,6 +141,18 @@ public class findiv {
                             combs.add((double)j);
                             combs.add((double)k);
                             combs.add((double)l);
+                            break;
+                        }
+                        if (CP >= Math.floor(CPfloor) && CP <= CPmax) {
+                            temp_totalstats = totalstats;
+                            temp_cpm = CPM[i][0];
+                            temp_cp = CP;
+                            temp_totalattack = totalattack;
+                            temp_totaldefense = totaldefense;
+                            temp_totalstamina = totalstamina;
+                            temp_j = (double)j;
+                            temp_k = (double)k;
+                            temp_l = (double)l;
                             //System.out.println("At level "+CPM[i][0]+" CP is: "+CP+ " and the totalstats is "+totalstats+" attack "+totalattack+" defense "+totaldefense+" stamina "+totalstamina+" with the IV "+j+":"+k+":"+l);
                         }
                     }
@@ -155,7 +188,7 @@ public class findiv {
             if (array2d.length <= printcutoff){
                 printcutoff = array2d.length-1;
             }
-            print_csv(array2d,printcutoff);
+            print_csv(array2d,array2d.length-1);
             print(array2d,printcutoff);
             
         }
