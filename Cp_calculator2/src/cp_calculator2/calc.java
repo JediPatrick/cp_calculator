@@ -74,7 +74,7 @@ public class calc {
             int totalattack = (int)(attack*CPMlevel);
             int totaldefense = (int)(defense*CPMlevel);
             int totalstamina = (int)(stamina*CPMlevel);
-            int totalstats = (int)(attack*CPMlevel*defense*CPMlevel*Math.floor(stamina*CPMlevel)/1000);
+            double totalstats = (attack*CPMlevel*defense*CPMlevel*Math.floor(stamina*CPMlevel)/1000);
 
             CPMlevel = Math.pow(CPMlevel, 2);
             
@@ -102,10 +102,14 @@ public class calc {
         stamina = stamina+IVstamina;
         for (int i = (int)level; i < CPM.length; i++){
             CPMlevel = CPM[i][1];
-            int totalattack = (int)(attack*CPMlevel);
-            int totaldefense = (int)(defense*CPMlevel);
-            int totalstamina = (int)(stamina*CPMlevel);
-            double totalstats = (attack*CPMlevel*defense*CPMlevel*Math.floor(stamina*CPMlevel));
+
+            double totalattack = (attack*CPMlevel);
+            double totaldefense = (defense*CPMlevel);
+            double totalstamina = (stamina*CPMlevel);
+            double totalstats = (((attack)*CPMlevel)*((defense)*CPMlevel)*Math.floor(((stamina)*CPMlevel)));
+
+            //double totalstats = (attack*CPMlevel*defense*CPMlevel*Math.floor(stamina*CPMlevel)/1000);
+
 
             CPMlevel = Math.pow(CPMlevel, 2);
             
@@ -116,7 +120,7 @@ public class calc {
                 break;
             }
             maxtotalstats = totalstats;
-            pokemonstats = ("Lvl "+CPM[i][0]+" "+(int)CP+ " CP and the totalstats is "+(int)totalstats+" att:"+totalattack+" def:"+totaldefense+" HP:"+totalstamina+" IV "+(int)IVattack+":"+(int)IVdefense+":"+(int)IVstamina);
+            pokemonstats = ("Lvl "+CPM[i][0]+" "+(int)CP+ " CP and the totalstats is "+(int)totalstats+" att:"+calculating.round(totalattack, 1)+" def:"+calculating.round(totaldefense, 1)+" HP:"+Math.floor(totalstamina)+" IV "+(int)IVattack+":"+(int)IVdefense+":"+(int)IVstamina);
             
         }
         int number = 0;
@@ -132,7 +136,7 @@ public class calc {
         double procent = findpokemon.round((maxtotalstats/array[0]*100), 2);
         //System.out.println(array[0] +" "+maxtotalstats+"  "+" number "+number);
 
-        System.out.println(pokemonstats+" "+procent+"%"+" number "+number);
+        System.out.println("#"+number+" At "+pokemonstats+" "+procent+"%"+" number "+number);
     }
     
     private static double round(double value, int places) {
